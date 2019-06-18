@@ -1,0 +1,47 @@
+@import '../../../variables';
+
+.Notes {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    pointer-events: none;
+    transform: translate(0, -100%);
+
+    .note {
+        width: 33%;
+        min-width: 33%;
+        height: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 400;
+        color: mix(@boardCellFocusColor, #000, 90%);
+        &.hidden {
+            color: transparent;
+        }
+
+        &:nth-child(-n + 3) {
+            align-items: flex-end;
+        }
+
+        &:nth-last-child(3),
+        &:nth-last-child(2),
+        &:nth-last-child(1) {
+            align-items: flex-start;
+        }
+
+        &:nth-last-child(3n) {
+            justify-content: flex-end;
+        }
+
+        &:nth-child(3n) {
+            justify-content: flex-start;
+        }
+
+        @media (max-width: @breakpointMobile) {
+            font-size: 0.7rem;
+        }
+    }
+}

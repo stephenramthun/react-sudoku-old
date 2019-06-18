@@ -1,0 +1,36 @@
+{
+  "name": "sudoku-frontend",
+  "version": "1.0.0",
+  "description": "Sudoku application using React",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "server": "node mock/server.js",
+    "prettier": "prettier --write \"src/**\""
+  },
+  "keywords": [
+    "sudoku",
+    "react"
+  ],
+  "author": "Stephen Ramthun",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "less": "^3.9.0",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.17.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.3",
+    "express": "^4.16.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-modal": "^3.8.1",
+    "react-redux": "^7.0.2",
+    "react-spring": "^8.0.19",
+    "redux": "^4.0.1",
+    "redux-saga": "^1.0.2"
+  }
+}

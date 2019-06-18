@@ -1,0 +1,23 @@
+@import './variables';
+
+.setHeaderWidth() {
+    .setWidth(70vh, 95vw);
+}
+
+.setBoardWidth() {
+    .setWidth(@boardWidth, @maxBoardWidth);
+}
+
+.setBoardHeight() {
+    .setHeight(@boardHeight, @maxBoardHeight);
+}
+
+.setWidth(@width, @maxWidth) {
+    width: @width;
+    max-width: @maxWidth;
+}
+
+.setHeight(@height, @maxHeight) {
+    height: @height;
+    max-height: @maxHeight;
+}

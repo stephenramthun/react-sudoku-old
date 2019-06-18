@@ -1,0 +1,54 @@
+@import '../../variables';
+
+@minWidth: 6rem;
+@padding: 0 0.5rem;
+@activeColor: mix(@headerColor, #fff, 65%);
+
+.DropdownMenu {
+    font-size: 1rem;
+
+    .selected {
+        .flex();
+        .active();
+        height: 2rem;
+        padding: @padding;
+        min-width: @minWidth;
+        border-bottom: 2px solid black;
+
+        svg {
+            fill: black;
+            height: 1rem;
+
+            &.up {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    ul {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background: @headerColor;
+
+        li {
+            .active();
+            min-width: @minWidth;
+            padding: 0.25rem 0.5rem;
+        }
+    }
+}
+
+.flex() {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.active() {
+    &:focus,
+    &:hover {
+        background: @activeColor;
+    }
+}

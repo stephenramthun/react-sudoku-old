@@ -1,0 +1,58 @@
+@import '../../variables';
+
+@cellBorderRadius: 0.5rem;
+
+.Row {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    &:not(:last-child) {
+        margin-bottom: @cellBorderThickness;
+        @media (max-width: @breakpointMobile) {
+            margin-bottom: @cellBorderThicknessMobile;
+        }
+
+        &:nth-child(3n) {
+            margin-bottom: @dividerBorderThickness;
+
+            @media (max-width: @breakpointMobile) {
+                margin-bottom: @dividerBorderThicknessMobile;
+            }
+        }
+    }
+
+    .CellContainer .Cell {
+        border-radius: 0;
+    }
+
+    &:nth-child(3n) {
+        .CellContainer {
+            &:nth-child(3n + 1) {
+                .Cell {
+                    border-radius: 0 0 0 @cellBorderRadius;
+                }
+            }
+            &:nth-child(3n) {
+                .Cell {
+                    border-radius: 0 0 @cellBorderRadius 0;
+                }
+            }
+        }
+    }
+
+    &:nth-child(3n + 1) {
+        .CellContainer {
+            &:nth-child(3n + 1) {
+                .Cell {
+                    border-radius: @cellBorderRadius 0 0 0;
+                }
+            }
+            &:nth-child(3n) {
+                .Cell {
+                    border-radius: 0 @cellBorderRadius 0 0;
+                }
+            }
+        }
+    }
+}

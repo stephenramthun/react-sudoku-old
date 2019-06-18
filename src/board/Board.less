@@ -1,0 +1,16 @@
+@import '../variables';
+@import '../mixins';
+
+@boardBorderThickness: 0.5rem;
+@boardColor: mix(@boardBorderColor, #000, 80%);
+
+.Board {
+    display: flex;
+    flex-direction: column;
+    .setBoardHeight();
+    .setBoardWidth();
+
+    &.solved {
+        border-color: @boardSolvedBorderColor;
+    }
+}

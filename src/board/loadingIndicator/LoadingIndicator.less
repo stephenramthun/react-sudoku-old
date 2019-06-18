@@ -1,0 +1,27 @@
+@import '../../mixins';
+
+@maxCubeSize: 2rem;
+@minCubeSize: 1rem;
+
+.wrapper {
+    .setBoardWidth();
+    .setBoardHeight();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .LoadingIndicator {
+        width: calc(@maxCubeSize * 3);
+        height: calc(@maxCubeSize * 3);
+        display: flex;
+        flex-wrap: wrap;
+
+        .container {
+            width: @maxCubeSize;
+            height: @maxCubeSize;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

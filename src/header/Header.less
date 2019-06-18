@@ -1,0 +1,26 @@
+@import '../variables';
+@import '../mixins';
+
+.Header {
+    .flex(center, column);
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2rem;
+    background: white;
+
+    @media (max-width: @breakpointMobile) {
+        margin-bottom: 1rem;
+    }
+
+    .content {
+        .setBoardWidth();
+        .flex(space-between, row);
+    }
+}
+
+.flex(@justification, @direction) {
+    display: flex;
+    align-items: center;
+    justify-content: @justification;
+    flex-direction: @direction;
+}

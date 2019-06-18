@@ -1,0 +1,68 @@
+@import '../../../../variables';
+
+@pressedColor: #fff;
+@buttonMainColor: @mainTextColor;
+@buttonFocusColor: mix(@green, #fff, 20%);
+
+.MenuButton {
+    .font();
+    .margins();
+    transition: all 0.2s;
+    box-shadow: inset 0 0 0 5px white;
+    border-radius: 1rem;
+
+    svg {
+        margin: 0.5rem;
+    }
+
+    svg,
+    div {
+        height: 1.5rem;
+        width: 1.5rem;
+        color: @buttonMainColor;
+        fill: @buttonMainColor;
+        transition: all 0.2s;
+    }
+
+    &:focus {
+        background: @buttonFocusColor;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        svg,
+        div {
+            fill: @green;
+        }
+    }
+
+    &.pushed,
+    &.pressed {
+        background: #72d898;
+        svg,
+        div {
+            color: @pressedColor;
+            fill: @pressedColor;
+        }
+    }
+}
+
+.margins() {
+    padding: 0.5rem;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.font() {
+    font-size: 1.5rem;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: 700;
+
+    @media (max-width: @breakpointMobile),
+        (max-height: @breakpointMobileHeight) {
+        font-size: 1rem;
+    }
+}

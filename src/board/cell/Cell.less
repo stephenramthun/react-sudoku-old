@@ -1,0 +1,110 @@
+@import '../../variables';
+
+@cellFocusThickness: 0.4rem;
+@boardCellValueColorSolved: mix(@boardSolvedBorderColor, #000, 80%);
+
+.mobileFocusThickness(@color) {
+    @media (max-width: @breakpointMobile) {
+        box-shadow: inset 0 0 0 calc(@cellFocusThickness / 2) @color;
+    }
+}
+
+.CellContainer {
+    .Cell {
+        .flex();
+        .size();
+        .text();
+        .color();
+        cursor: default;
+        transition: all 0.15s;
+        border-radius: 0.5rem;
+        -webkit-appearance: none;
+        outline: none;
+        border: none;
+
+        &:focus,
+        &.active {
+            outline: none;
+            box-shadow: inset 0 0 0 @cellFocusThickness @boardCellFocusColor;
+            background: mix(@boardCellFocusColor, #fff, 20%);
+            .mobileFocusThickness(@boardCellFocusColor);
+        }
+
+        &.non-editable {
+            &:focus,
+            &.active {
+                box-shadow: inset 0 0 0 @cellFocusThickness
+                @boardCellValueColorNonEditable;
+                background-color: @boardBorderColor;
+                .mobileFocusThickness(@boardCellValueColorNonEditable);
+            }
+        }
+
+        &.error {
+            color: @boardCellErrorColor;
+            &:focus,
+            &.active {
+                box-shadow: inset 0 0 0 @cellFocusThickness @boardCellErrorColor;
+                background: mix(@boardCellErrorColor, #fff, 20%);
+                .mobileFocusThickness(@boardCellErrorColor);
+            }
+        }
+
+        &.solved {
+            color: @boardCellValueColorSolved;
+            &:focus,
+            &.active {
+                box-shadow: inset 0 0 0 @cellFocusThickness @boardSolvedBorderColor;
+                background: mix(@boardSolvedBorderColor, #fff, 20%);
+                .mobileFocusThickness(@boardCellValueColorSolved);
+            }
+        }
+
+        @media (max-width: @breakpointMobile),
+        (max-height: @breakpointMobileHeight) {
+            font-size: 1rem;
+        }
+    }
+
+    margin-right: @cellBorderThickness;
+
+    @media (max-width: @breakpointMobile),
+    (max-height: @breakpointMobileHeight) {
+        margin-right: @cellBorderThicknessMobile;
+    }
+
+    &:nth-child(3n) {
+        margin-right: @dividerBorderThickness;
+        @media (max-width: @breakpointMobile),
+        (max-height: @breakpointMobileHeight) {
+            margin-right: @dividerBorderThicknessMobile;
+        }
+    }
+
+    &:last-child {
+        margin: 0;
+    }
+}
+
+.flex() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text() {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.size() {
+    width: 100%;
+    height: 100%;
+}
+
+.color() {
+    background-color: #fff;
+    color: @boardCellValueColor;
+    caret-color: transparent;
+}
